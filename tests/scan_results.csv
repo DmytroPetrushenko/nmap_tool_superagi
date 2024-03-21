@@ -1,0 +1,28 @@
+host;hostname;hostname_type;protocol;port;name;state;product;extrainfo;reason;version;conf;cpe
+63.251.228.119;;;tcp;22;ssh;open;OpenSSH;protocol 2.0;syn-ack;7.4;10;cpe:/a:openbsd:openssh:7.4
+63.251.228.119;;;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.120;;;tcp;23;telnet;closed;;;conn-refused;;3;
+63.251.228.120;;;tcp;43;whois;closed;;;conn-refused;;3;
+63.251.228.120;;;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.28;;;tcp;22;ssh;closed;;;conn-refused;;3;
+63.251.228.28;;;tcp;23;telnet;closed;;;conn-refused;;3;
+63.251.228.28;;;tcp;43;whois;closed;;;conn-refused;;3;
+63.251.228.28;;;tcp;111;rpcbind;closed;;;conn-refused;;3;
+63.251.228.28;;;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.30;ns-sj.portera.com;PTR;tcp;53;domain;open;ISC BIND;;syn-ack;;10;cpe:/a:isc:bind
+63.251.228.41;eqxeisopenl01.eqx.exigengroup.com;PTR;tcp;23;telnet;closed;;;conn-refused;;3;
+63.251.228.41;eqxeisopenl01.eqx.exigengroup.com;PTR;tcp;80;http;open;Apache httpd;;syn-ack;;10;cpe:/a:apache:http_server
+63.251.228.41;eqxeisopenl01.eqx.exigengroup.com;PTR;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.69;;;tcp;43;whois;closed;;;conn-refused;;3;
+63.251.228.69;;;tcp;79;finger;closed;;;conn-refused;;3;
+63.251.228.69;;;tcp;80;http;open;Apache httpd;;syn-ack;;10;cpe:/a:apache:http_server
+63.251.228.69;;;tcp;111;rpcbind;closed;;;conn-refused;;3;
+63.251.228.69;;;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.70;;;tcp;23;telnet;closed;;;conn-refused;;3;
+63.251.228.70;;;tcp;80;http;open;Apache httpd;;syn-ack;;10;cpe:/a:apache:http_server
+63.251.228.70;;;tcp;111;rpcbind;closed;;;conn-refused;;3;
+63.251.228.70;;;tcp;113;ident;closed;;;conn-refused;;3;
+63.251.228.74;sfo-eis-proxy01.eqxdev.exigengroup.com;PTR;tcp;23;telnet;closed;;;conn-refused;;3;
+63.251.228.74;sfo-eis-proxy01.eqxdev.exigengroup.com;PTR;tcp;43;whois;closed;;;conn-refused;;3;
+63.251.228.74;sfo-eis-proxy01.eqxdev.exigengroup.com;PTR;tcp;111;rpcbind;closed;;;conn-refused;;3;
+63.251.228.74;sfo-eis-proxy01.eqxdev.exigengroup.com;PTR;tcp;113;ident;closed;;;conn-refused;;3;
