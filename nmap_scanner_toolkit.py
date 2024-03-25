@@ -1,7 +1,7 @@
 from abc import ABC
-from superagi.tools.base_tool import BaseToolkit, BaseTool
+from superagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
 from typing import Type, List
-from tool_code import NmapTool
+from nmap_scanner import NmapTool
 
 
 class NmapToolkit(BaseToolkit, ABC):
@@ -11,3 +11,7 @@ class NmapToolkit(BaseToolkit, ABC):
     def get_tools(self) -> List[BaseTool]:
         return [NmapTool()]
 
+    def get_env_keys(self) -> List[ToolConfiguration]:
+        return [
+            # Add more config keys specific to your project
+        ]

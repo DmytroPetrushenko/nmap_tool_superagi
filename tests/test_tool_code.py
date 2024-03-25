@@ -1,5 +1,5 @@
 # Using the class
-from tool_code import NmapScanner
+from nmap_scanner import NmapScanner
 
 if __name__ == "__main__":
     host = '63.251.228.0/24'
