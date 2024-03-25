@@ -5,16 +5,16 @@ from typing import Type
 
 
 class NmapScanner:
-    def __init__(self, host, ports=None, arguments=None):
+    def __init__(self, host, ports, arguments):
         self.host: str = host
-        self.ports: str = ports
-        self.arguments: str = arguments
+        self.ports: str = ports if ports != "" else None
+        self.arguments: str = arguments if arguments != "" else None
         self.scanner = nmap.PortScanner()
 
     def scan_and_save(self, filename):
         # Launch scanning
         try:
-            if '-p' in self.arguments:
+            if self.arguments is not None and '-p' in self.arguments:
                 self.arguments = self.arguments.replace('-p', '')
 
             if self.ports is None and self.arguments is None:
@@ -54,7 +54,8 @@ class NmapTool(BaseTool):
     description: str = "Utilizes Nmap for network scanning and security auditing."
 
     def _execute(self, host: str, port: str, arguments: str, filename='scan_results.csv'):
-        nmap_scanner = NmapScanner(host, port)
+        nmap_scanner = NmapScanner(host, port, arguments)
+
         if nmap_scanner.scan_and_save(filename):
             return f"Scan finished. Results are saved in {filename}."
         else:
