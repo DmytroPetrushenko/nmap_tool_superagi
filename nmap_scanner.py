@@ -39,15 +39,15 @@ class NmapScanner:
 
 
 class NmapInput(BaseModel):
-    args: str = Field(..., description="A dictionary containing keys 'hosts', 'port', and 'arguments' for configuring "
-                                       "an Nmap scan. 'hosts' should contain IP addresses or domain names to be "
-                                       "scanned. 'port' specifies a single port or a range of ports to be scanned. "
-                                       "'arguments' allows for additional Nmap command-line arguments to customize "
-                                       "the scan, such as specific port ranges, scan techniques, and the usage of "
-                                       "scripts. This flexible structure enables a wide range of scanning scenarios, "
-                                       "from simple host discovery to more complex service and vulnerability "
-                                       "detection."
-                      )
+    args: dict = Field(..., description="A dictionary containing keys 'hosts', 'port', and 'arguments' for configuring "
+                                        "an Nmap scan. 'hosts' should contain IP addresses or domain names to be "
+                                        "scanned. 'port' specifies a single port or a range of ports to be scanned. "
+                                        "'arguments' allows for additional Nmap command-line arguments to customize "
+                                        "the scan, such as specific port ranges, scan techniques, and the usage of "
+                                        "scripts. This flexible structure enables a wide range of scanning scenarios, "
+                                        "from simple host discovery to more complex service and vulnerability "
+                                        "detection."
+                       )
 
 
 class NmapTool(BaseTool):

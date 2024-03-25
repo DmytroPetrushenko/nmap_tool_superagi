@@ -12,5 +12,5 @@ from nmap_scanner import NmapScanner, NmapTool
 # Tool Nmap Tool returned: Error1: NmapTool._execute() got an unexpected keyword argument 'hosts',
 # TypeError, args: {'hosts': '63.251.228.0/24', 'port': '', 'arguments': ''}
 
-args = {'hosts': '127.0.0.1', 'port': '', 'arguments': ''}
+args = "{'hosts': '127.0.0.1', 'port': '', 'arguments': ''}"
 NmapTool()._execute(args)
