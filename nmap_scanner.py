@@ -53,8 +53,12 @@ class NmapTool(BaseTool):
     args_schema: Type[BaseModel] = NmapInput
     description: str = "Utilizes Nmap for network scanning and security auditing."
 
-    def _execute(self, host: str, port: str, arguments: str, filename='scan_results.csv'):
-        nmap_scanner = NmapScanner(host, port, arguments)
+    def _execute(self, args: dict, filename='scan_results.csv'):
+        hosts = args['hosts']
+        port = args['port']
+        arguments = args['arguments']
+
+        nmap_scanner = NmapScanner(hosts, port, arguments)
 
         if nmap_scanner.scan_and_save(filename):
             return f"Scan finished. Results are saved in {filename}."
