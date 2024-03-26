@@ -58,16 +58,17 @@ class NmapTool(BaseTool):
     args_schema: Type[BaseModel] = NmapInput
     description: str = "Utilizes Nmap for network scanning and security auditing."
 
-    def _execute(self, args: dict, filename='scan_results.csv'):
+    def _execute(self, args: dict):
         hosts = args['hosts']
         port = args['port']
         arguments = args['arguments']
 
-        nmap_scanner = NmapScanner(hosts, port, arguments)
+        try:
+            nmap_scanner = NmapScanner(hosts, port, arguments)
+            result_csv = nmap_scanner.get_scan_results_as_csv()
+            return result_csv
+        except Exception as e:
+            # Log the exception and consider returning a custom error message
+            # depending on the nature of the exception for better user feedback
+            return f"Error during scanning: {str(e)}"
 
-        nmap_scanner.scan_and_savex
-
-        if nmap_scanner.scan_and_save(filename):
-            return f"Scan finished. Results are saved in {filename}."
-        else:
-            return "Scan failed. Check the logs for errors."
