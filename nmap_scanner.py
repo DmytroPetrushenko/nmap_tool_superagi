@@ -56,7 +56,8 @@ class NmapTool(BaseTool):
     """
     name: str = "Nmap Tool"
     args_schema: Type[BaseModel] = NmapInput
-    description: str = "Utilizes Nmap for network scanning and security auditing."
+    description: str = ("Nmap Tool is used to discover hosts and services on a computer network by sending packets and "
+                        "analyzing the responses")
 
     def _execute(self, args: dict):
         hosts = args.get('hosts')
