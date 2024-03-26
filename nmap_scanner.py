@@ -59,9 +59,9 @@ class NmapTool(BaseTool):
     description: str = "Utilizes Nmap for network scanning and security auditing."
 
     def _execute(self, args: dict):
-        hosts = args['hosts']
-        port = args['port']
-        arguments = args['arguments']
+        hosts = args.get('hosts')
+        port = args.get('port')
+        arguments = args.get('arguments')
 
         try:
             nmap_scanner = NmapScanner(hosts, port, arguments)
