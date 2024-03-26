@@ -1,0 +1,6 @@
+host;hostname;hostname_type;protocol;port;name;state;product;extrainfo;reason;version;conf;cpe
+127.0.0.1;localhost;PTR;tcp;53;domain;open;;;syn-ack;;3;
+127.0.0.1;localhost;PTR;tcp;3306;mysql;open;MySQL;;syn-ack;8.0.31;10;cpe:/a:mysql:mysql:8.0.31
+127.0.0.1;localhost;PTR;tcp;5000;rtsp;open;AirTunes rtspd;;syn-ack;760.20.1;10;cpe:/a:apple:airtunes:760.20.1
+127.0.0.1;localhost;PTR;tcp;7000;rtsp;open;AirTunes rtspd;;syn-ack;760.20.1;10;cpe:/a:apple:airtunes:760.20.1
+127.0.0.1;localhost;PTR;tcp;8021;tcpwrapped;open;;;syn-ack;;8;

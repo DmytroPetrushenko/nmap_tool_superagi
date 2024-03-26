@@ -7,20 +7,20 @@ from typing import Type
 class NmapScanner:
     def __init__(self, host, ports, arguments):
         self.host: str = host
-        self.ports: str = ports if ports != "" else None
-        self.arguments: str = arguments if arguments != "" else None
+        self.ports: str = ports
+        self.arguments: str = arguments
         self.scanner = nmap.PortScanner()
 
-    def scan(self):
+    def __scan(self):
         # If the arguments contain '-p', remove it (assuming '-p' should not be port-unspecified)
         args = self.arguments.replace('-p', '') if self.arguments and '-p' in self.arguments else self.arguments
 
         # Performing a scan
-        self.scanner.scan(hosts=self.host, ports=self.ports if self.ports else None, arguments=args if args else None)
+        self.scanner.scan(hosts=self.host, ports=self.ports if self.ports else None, arguments=args if args else "-sV")
 
     def scan_and_save(self, filename):
         try:
-            self.scan()
+            self.__scan()
 
             # Saving the scan results to a file
             with open(filename, 'w') as file:
@@ -33,7 +33,7 @@ class NmapScanner:
             return False
 
     def get_scan_results_as_csv(self):
-        self.scan()
+        self.__scan()
         return self.scanner.csv()
 
 
