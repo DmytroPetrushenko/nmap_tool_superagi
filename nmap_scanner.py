@@ -11,31 +11,31 @@ class NmapScanner:
         self.arguments: str = arguments if arguments != "" else None
         self.scanner = nmap.PortScanner()
 
+    def scan(self):
+        # If the arguments contain '-p', remove it (assuming '-p' should not be port-unspecified)
+        args = self.arguments.replace('-p', '') if self.arguments and '-p' in self.arguments else self.arguments
+
+        # Performing a scan
+        self.scanner.scan(hosts=self.host, ports=self.ports if self.ports else None, arguments=args if args else None)
+
     def scan_and_save(self, filename):
-        # Launch scanning
         try:
-            if self.arguments is not None and '-p' in self.arguments:
-                self.arguments = self.arguments.replace('-p', '')
+            self.scan()
 
-            if self.ports is None and self.arguments is None:
-                self.scanner.scan(hosts=self.host)
-            elif self.ports is None:
-                self.scanner.scan(hosts=self.host, arguments=self.arguments)
-            elif self.arguments is None:
-                self.scanner.scan(hosts=self.host, ports=self.ports)
-            else:
-                self.scanner.scan(hosts=self.host, ports=self.ports, arguments=self.arguments)
-
-            # Get the result in CSV format
-            scan_results = self.scanner.csv()
-            # Save the result to a file
+            # Saving the scan results to a file
             with open(filename, 'w') as file:
-                file.write(scan_results)
+                file.write(self.scanner.csv())
+
             print(f"Results saved to {filename}")
             return True
         except Exception as e:
             print(f"Scan failed: {e}")
             return False
+
+    def get_scan_results_as_csv(self):
+        self.scan()
+        return self.scanner.csv()
+
 
 
 class NmapInput(BaseModel):
@@ -64,6 +64,8 @@ class NmapTool(BaseTool):
         arguments = args['arguments']
 
         nmap_scanner = NmapScanner(hosts, port, arguments)
+
+        nmap_scanner.scan_and_savex
 
         if nmap_scanner.scan_and_save(filename):
             return f"Scan finished. Results are saved in {filename}."
